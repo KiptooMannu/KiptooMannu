@@ -1,73 +1,112 @@
-<!-- Header Banner -->
+<!-- ═══════════════════════════════════════════════ HEADER ══ -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Emmanuel%20Kiptoo&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Full%20Stack%20Developer%20%7C%20Backend%20Engineer%20%7C%20Open%20Source%20Enthusiast&descSize=18&descAlignY=58" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Kiptoo%20Emmanuel&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Full%20Stack%20Developer%20%7C%20Backend%20Engineer%20%7C%20Kenya%20%F0%9F%87%B0%F0%9F%87%AA&descSize=18&descAlignY=58" />
 </div>
 
 <div align="center">
-  
-  [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6E40C9&center=true&vCenter=true&width=700&lines=TypeScript+Developer;Spring+Boot+%7C+Angular+%7C+React;Backend+Engineer+from+Kenya+%F0%9F%87%B0%F0%9F%87%AA;Building+Scalable+Web+Applications;Always+Learning+%E2%80%94+Always+Growing)](https://git.io/typing-svg)
 
-  [![Profile Views](https://komarev.com/ghpvc/?username=KiptooMannu&style=for-the-badge&color=6E40C9)](https://github.com/KiptooMannu)
-  [![GitHub followers](https://img.shields.io/github/followers/KiptooMannu?style=for-the-badge&color=6E40C9)](https://github.com/KiptooMannu?tab=followers)
-  [![GitHub Stars](https://img.shields.io/github/stars/KiptooMannu?style=for-the-badge&color=6E40C9)](https://github.com/KiptooMannu)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=6E40C9&center=true&vCenter=true&width=750&lines=Hey+there!+I'm+Emmanuel+%F0%9F%91%8B;Full+Stack+Developer+%F0%9F%9A%80;Spring+Boot+%7C+Angular+%7C+React+%7C+Node.js;Building+Scalable+Apps+from+Nairobi+%F0%9F%87%B0%F0%9F%87%AA;Always+Learning+%E2%80%94+Always+Shipping+%E2%9C%85)](https://git.io/typing-svg)
+
+<br/>
+
+[![Profile Views](https://komarev.com/ghpvc/?username=KiptooMannu&style=for-the-badge&color=6E40C9&label=PROFILE+VIEWS)](https://github.com/KiptooMannu)
+[![GitHub followers](https://img.shields.io/github/followers/KiptooMannu?style=for-the-badge&color=6E40C9&label=FOLLOWERS)](https://github.com/KiptooMannu?tab=followers)
+[![GitHub Stars](https://img.shields.io/github/stars/KiptooMannu?style=for-the-badge&color=6E40C9&label=STARS)](https://github.com/KiptooMannu)
+[![Repos](https://img.shields.io/badge/REPOSITORIES-67-6E40C9?style=for-the-badge)](https://github.com/KiptooMannu?tab=repositories)
 
 </div>
 
 ---
 
-## 👨‍💻 About Me
+<!-- ═══════════════════════════════════════════════ ABOUT ME ══ -->
 
-<img align="right" width="300" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="Coding gif" />
+## 🙋‍♂️ About Me
 
-```typescript
-const emmanuel: Developer = {
-  name:        "Emmanuel Kiptoo",
-  username:    "KiptooMannu",
-  location:    "Nairobi, Kenya 🇰🇪",
-  email:       "kkgg7241@gmail.com",
-  role:        "Full Stack Developer",
+<table>
+<tr>
+<td valign="top" width="55%">
 
-  frontend:    ["Angular", "React", "Next.js", "Redux", "TailwindCSS"],
-  backend:     ["Spring Boot", "Node.js", "Express.js"],
-  languages:   ["TypeScript", "JavaScript", "Java"],
-  databases:   ["PostgreSQL", "MongoDB"],
-  tools:       ["Git", "Docker", "Postman", "VS Code"],
+### Hi, I'm **Emmanuel Kiptoo** 👨‍💻
 
-  currentFocus: [
-    "Microservices Architecture",
-    "Cloud Deployment & CI/CD",
-    "Scalable System Design",
-  ],
+I'm a passionate **Full Stack Developer** based in **Nairobi, Kenya 🇰🇪**, building modern, scalable web applications that solve real-world problems.
 
-  funFact: "I debug with console.log — and I'm not ashamed 😄",
-};
-```
+I love working across the entire stack — from crafting sleek Angular/React frontends to architecting robust Spring Boot and Node.js backends, backed by PostgreSQL databases.
 
-- 🔭 Currently building **scalable full-stack applications** with Spring Boot & Angular
-- 🌱 Deepening expertise in **microservices, cloud infrastructure, and DevOps**
-- 💬 Happy to chat about **Angular, React, Spring Boot, Node.js, and PostgreSQL**
-- 🤝 Always open to **collaboration, open-source contributions, and new opportunities**
-- ⚡ Passionate about **clean code, solid architecture, and intuitive UI**
-- 🏆 GitHub Achievement: **Pull Shark** 🦈
+<br/>
+
+🔭 &nbsp;Currently building a **Vehicle Management System** (Spring Boot + Angular)<br/>
+🌱 &nbsp;Learning **Microservices**, **Docker**, **CI/CD** & **Cloud Deployment**<br/>
+💬 &nbsp;Ask me about **Angular, React, Spring Boot, Node.js, TypeScript**<br/>
+🤝 &nbsp;Open to **collaborations**, **freelance work**, and **open-source**<br/>
+🏆 &nbsp;GitHub Achievement: **Pull Shark** 🦈<br/>
+⚡ &nbsp;Fun fact: I debug with `console.log` — no shame! 😄<br/>
+📍 &nbsp;**Nairobi, Kenya** &nbsp;|&nbsp; 📧 **kkgg7241@gmail.com**
+
+<br/>
+
+[![Email](https://img.shields.io/badge/Gmail-kkgg7241@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:kkgg7241@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-KiptooMannu-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/KiptooMannu)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Emmanuel%20Kiptoo-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/KiptooMannu)
+
+</td>
+<td valign="top" width="45%" align="center">
+
+<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="320" alt="Developer at work" />
+
+<br/><br/>
+
+| 📋 | Info |
+|---|---|
+| 💼 | Full Stack Developer |
+| 🌍 | Nairobi, Kenya |
+| 💻 | 67+ Repositories |
+| 👥 | 139+ Followers |
+| ✉️ | kkgg7241@gmail.com |
+| ⏰ | UTC+3 Timezone |
+
+</td>
+</tr>
+</table>
 
 ---
+
+<!-- ══════════════════════════════════════ QUICK STATS CARDS ══ -->
+
+## 📊 At a Glance
+
+<div align="center">
+
+| 🚀 Expertise | 📦 Projects | 🎯 Current Focus | 🌐 Location |
+|:---:|:---:|:---:|:---:|
+| Full Stack Dev | 67+ Repos | Microservices | Nairobi, Kenya |
+| Backend Architect | 5+ Featured | System Design | 🇰🇪 East Africa |
+| API Developer | Open Source Contributor | Cloud & DevOps | UTC+3 |
+
+</div>
+
+---
+
+<!-- ══════════════════════════════════════════════ CONNECT ══ -->
 
 ## 🌐 Connect With Me
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/Email-kkgg7241%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kkgg7241@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-KiptooMannu-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Emmanuel%20Kiptoo-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/KiptooMannu)
-[![Twitter](https://img.shields.io/badge/Twitter-@KiptooMannu-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/KiptooMannu)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kkgg7241@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/KiptooMannu)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/KiptooMannu)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://github.com/KiptooMannu)
 
 </div>
 
 ---
 
-## 🛠️ Tech Stack
+<!-- ══════════════════════════════════════════════ TECH STACK ══ -->
 
-### 🗣️ Languages
+## 🛠️ Tech Stack & Tools
+
+### 🗣️ Programming Languages
 
 <div align="center">
 
@@ -79,9 +118,7 @@ const emmanuel: Developer = {
 
 </div>
 
----
-
-### 🎨 Frontend
+### 🎨 Frontend Development
 
 <div align="center">
 
@@ -91,24 +128,22 @@ const emmanuel: Developer = {
 ![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
 
 </div>
 
----
-
-### ⚙️ Backend
+### ⚙️ Backend Development
 
 <div align="center">
 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![REST API](https://img.shields.io/badge/REST%20API-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
+![REST API](https://img.shields.io/badge/REST%20API-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
 
 </div>
-
----
 
 ### 🗄️ Databases
 
@@ -117,12 +152,11 @@ const emmanuel: Developer = {
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 
 </div>
 
----
-
-### 🔧 Tools & DevOps
+### 🔧 Tools, DevOps & Cloud
 
 <div align="center">
 
@@ -131,21 +165,49 @@ const emmanuel: Developer = {
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ-000000?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
 </div>
 
 ---
 
+<!-- ══════════════════════════════════════════════ SKILLS TABLE ══ -->
+
+## 🧠 Skills Overview
+
+<div align="center">
+
+| Skill | Level | Progress |
+|---|:---:|---|
+| 🎨 Frontend (Angular / React) | Expert | `████████████████████` 90% |
+| ⚙️ Backend (Spring Boot / Node) | Advanced | `███████████████████░` 85% |
+| 🗄️ Database Design | Advanced | `██████████████████░░` 80% |
+| 🔌 REST API Development | Expert | `████████████████████` 90% |
+| 🔐 JWT & Auth Systems | Advanced | `███████████████████░` 85% |
+| 🐙 Git & Version Control | Expert | `████████████████████` 90% |
+| 🐳 Docker & DevOps | Intermediate | `████████████░░░░░░░░` 55% |
+| 📐 System Design | Intermediate | `██████████████░░░░░░` 65% |
+| ☁️ Cloud (AWS / GCP) | Beginner | `█████████░░░░░░░░░░░` 40% |
+
+</div>
+
+---
+
+<!-- ══════════════════════════════════════════════ GITHUB STATS ══ -->
+
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=KiptooMannu&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub Stats" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=KiptooMannu&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=KiptooMannu&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&rank_icon=github" alt="GitHub Stats" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=KiptooMannu&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" />
 </div>
 
+<br/>
+
 <div align="center">
-  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=KiptooMannu&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <img width="65%" src="https://github-readme-streak-stats.herokuapp.com/?user=KiptooMannu&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 </div>
 
 ---
@@ -153,7 +215,7 @@ const emmanuel: Developer = {
 ## 📈 Contribution Graph
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=KiptooMannu&theme=tokyo-night&hide_border=true&area=true" alt="Contribution Graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=KiptooMannu&theme=tokyo-night&hide_border=true&area=true&custom_title=Emmanuel's%20Contribution%20Graph" alt="Contribution Graph" />
 </div>
 
 ---
@@ -161,154 +223,208 @@ const emmanuel: Developer = {
 ## 🏆 GitHub Trophies
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=KiptooMannu&theme=tokyonight&no-frame=true&row=1&column=6" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=KiptooMannu&theme=tokyonight&no-frame=true&row=1&column=7&margin-w=8" alt="GitHub Trophies" />
 </div>
 
 ---
 
+<!-- ══════════════════════════════════════════════ PROJECTS ══ -->
+
 ## 🚀 Featured Projects
+
+<table>
+<tr>
+<td width="50%" valign="top">
 
 ### 🚗 Vehicle Management System
 
-> A full-stack fleet management and vehicle booking platform
+> Full-stack fleet & booking management platform
 
-**Tech Stack:** `Spring Boot` · `Angular` · `PostgreSQL` · `JWT Auth` · `Role-Based Access Control`
+![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)
+![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/-JWT-000?style=flat-square&logo=jsonwebtokens&logoColor=white)
 
-| Feature | Description |
-|---|---|
-| 🔐 Authentication | Secure JWT-based login and registration |
-| 🚘 Fleet Management | Admin panel to manage vehicles, availability, and assignments |
-| 📅 Booking System | End-to-end vehicle reservation with conflict prevention |
-| 💳 Payments | Integrated payment processing and transaction history |
-| 📊 Analytics | Real-time dashboards for bookings and usage trends |
-| 👥 Role-Based Access | Separate admin, staff, and user permission tiers |
+- 🔐 Secure JWT authentication & RBAC
+- 🚘 Admin fleet management dashboard
+- 📅 Real-time vehicle booking & scheduling
+- 💳 Payment processing & transaction history
+- 📊 Analytics dashboard with booking trends
+- 👥 Multi-role: Admin / Staff / User
 
-[![View Repo](https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
+[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
 
----
+</td>
+<td width="50%" valign="top">
 
-### 💼 Kazi Konnect — Service Marketplace
+### 💼 Kazi Konnect
 
-> A platform connecting skilled workers with clients across Kenya
+> Service marketplace connecting workers & clients across Kenya
 
-**Tech Stack:** `Node.js` · `React` · `PostgreSQL` · `JWT` · `REST API`
+![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/-React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
+![REST](https://img.shields.io/badge/-REST%20API-FF6C37?style=flat-square&logo=postman&logoColor=white)
 
-| Feature | Description |
-|---|---|
-| 👤 Worker Profiles | Detailed service provider profiles with ratings and reviews |
-| 🔒 Secure Auth | JWT-based authentication with role separation |
-| 📸 Media Upload | Profile picture and portfolio image management |
-| 💬 Messaging | Real-time communication between clients and workers |
-| 📋 Bookings | Service scheduling, status tracking, and history |
-| ⭐ Reviews | Client feedback and service rating system |
+- 👤 Rich worker & client profiles with ratings
+- 🔒 JWT auth with role-based access
+- 📸 Portfolio & profile image uploads
+- 💬 Real-time in-app messaging
+- 📋 Service booking & status tracking
+- ⭐ Client feedback & review system
 
-[![View Repo](https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
+[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
 
----
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-### 🌍 REST Countries API — Theme Switcher
+### 🌍 REST Countries — Theme Switcher
 
-> A responsive web app fetching real-world country data with a dynamic light/dark theme
+> Country data explorer with dynamic dark/light theme
 
-**Tech Stack:** `JavaScript` · `CSS` · `REST Countries API` · `Theme Switcher`
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
-- 🌐 Browse data on every country — population, region, capital, and flags
-- 🌙 Smooth light/dark mode toggle with local storage persistence
-- 🔍 Search and filter by region or country name
-- 📱 Fully responsive layout across all screen sizes
+- 🌐 Live country data — flags, capitals, population
+- 🌙 Smooth dark/light mode with localStorage
+- 🔍 Search & region filter functionality
+- 📱 Fully responsive design
 
-[![View Repo](https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Rest-Countries-API-with-Theme-Switcher)
+[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Rest-Countries-API-with-Theme-Switcher)
 
----
+</td>
+<td width="50%" valign="top">
 
 ### 🖼️ Image Search App
 
-> A clean, fast image discovery app powered by a public photo API
+> Fast image discovery powered by Unsplash API
 
-**Tech Stack:** `JavaScript` · `CSS` · `Unsplash API`
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
-- 🔎 Search millions of high-quality images in real time
-- ♾️ Infinite scroll / load-more pagination
-- 📐 Responsive masonry-style grid layout
+- 🔎 Real-time search across millions of images
+- ♾️ Load-more / infinite scroll pagination
+- 📐 Responsive masonry grid layout
+- ⚡ Optimized for fast loading
 
-[![View Repo](https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Image-Search-App-With-API)
+[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Image-Search-App-With-API)
 
----
-
-### 🌗 Dark Mode / Light Mode Dashboard
-
-> A modern UI dashboard with a seamless theme switcher
-
-**Tech Stack:** `HTML` · `CSS` · `JavaScript`
-
-- 🎨 Polished two-tone design with instant theme toggling
-- 💾 Remembers user preference via localStorage
-- 📊 Interactive dashboard widgets and layout
-
-[![View Repo](https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Dark-Mode-Light-Mode-Switch-Dashboard)
+</td>
+</tr>
+</table>
 
 ---
+
+<!-- ══════════════════════════════════════════════ LEARNING ══ -->
 
 ## 📚 Currently Learning
 
 <div align="center">
 
-| 🎯 Area | 📖 Topics |
-|---|---|
-| ☁️ Cloud & DevOps | Docker, CI/CD Pipelines, AWS basics |
-| 🏗️ Architecture | Microservices, Event-Driven Design, Domain-Driven Design |
-| 🔐 Security | Advanced Spring Security, OAuth2, API hardening |
-| 📐 System Design | Scalability patterns, Load Balancing, Caching strategies |
-| 🧪 Testing | Unit testing, Integration testing, TDD with Jest & JUnit |
+| 🎯 Area | 📖 Topics | ⏳ Status |
+|:---:|---|:---:|
+| ☁️ Cloud & DevOps | Docker, CI/CD Pipelines, GitHub Actions, AWS | 🔄 In Progress |
+| 🏗️ Architecture | Microservices, Event-Driven Design, DDD | 🔄 In Progress |
+| 🔐 Security | Spring Security, OAuth2, API Hardening | 🔄 In Progress |
+| 📐 System Design | Scalability, Load Balancing, Caching | 📖 Studying |
+| 🧪 Testing | TDD, Jest, JUnit 5, Integration Tests | 📖 Studying |
+| 📱 Mobile | React Native basics | 🔜 Upcoming |
 
 </div>
 
 ---
 
-## 🧠 Skills Overview
+<!-- ══════════════════════════════════════════════ ACHIEVEMENTS ══ -->
 
-```
-Frontend Development    ████████████████████░   90%
-Backend Development     ███████████████████░░   85%
-Database Design         ██████████████████░░░   80%
-API Development         ████████████████████░   90%
-Version Control (Git)   ████████████████████░   90%
-Docker & DevOps         ████████████░░░░░░░░░   55%
-System Design           ██████████████░░░░░░░   65%
-Cloud (AWS/GCP)         █████████░░░░░░░░░░░░   40%
-```
+## 🎖️ GitHub Achievements & Highlights
+
+<div align="center">
+
+| 🏅 Achievement | 📝 Description |
+|:---:|---|
+| 🦈 Pull Shark | Merged multiple pull requests — collaboration pro |
+| ⭐ 39+ Stars | Received across repositories from the community |
+| 👥 139+ Followers | Growing developer community on GitHub |
+| 📦 67 Repositories | Active builder — always shipping something |
+| 🌐 Open Source | Contributing back to the dev community |
+| 🇰🇪 Nairobi Dev | Part of Kenya's Silicon Savannah tech scene |
+
+</div>
 
 ---
+
+<!-- ══════════════════════════════════════════════ FUN FACTS ══ -->
+
+## ⚡ Fun Facts About Me
+
+<div align="center">
+
+🌍 &nbsp; Based in **Nairobi, Kenya** — East Africa's Silicon Savannah
+
+☕ &nbsp; Best code is written after a cup of **chai tea**
+
+🎧 &nbsp; **Lo-fi music** is my coding superpower
+
+🐛 &nbsp; I name my bugs **"features"** until they're fixed
+
+🌱 &nbsp; Started with **vanilla JS**, never stopped learning
+
+🔥 &nbsp; Consistent GitHub commits = my **daily workout**
+
+😄 &nbsp; `console.log("still debugging...")` — my most used line
+
+</div>
+
+---
+
+<!-- ══════════════════════════════════════════════ PHILOSOPHY ══ -->
 
 ## 💡 Dev Philosophy
 
-> *"First, solve the problem. Then, write the code."* — John Johnson
+<div align="center">
 
-> *"Clean code always looks like it was written by someone who cares."* — Robert C. Martin
+> 💬 *"First, solve the problem. Then, write the code."* — **John Johnson**
 
-I believe great software is built at the intersection of **technical depth** and **empathy for the user**. Whether I'm designing a REST API, architecting a database schema, or crafting a pixel-perfect UI — I aim to write code that is readable, maintainable, and built to last.
+> 💬 *"Clean code always looks like it was written by someone who cares."* — **Robert C. Martin**
+
+> 💬 *"Any fool can write code a computer understands. Good programmers write code humans understand."* — **Martin Fowler**
+
+</div>
+
+I believe great software lives at the intersection of **technical depth** and **empathy for the user**. Whether I'm designing a REST API, architecting a PostgreSQL schema, or crafting a pixel-perfect Angular UI — I aim to write code that is **readable**, **maintainable**, and **built to last**.
 
 ---
 
-## 📫 Get In Touch
+<!-- ══════════════════════════════════════════════ CONTACT ══ -->
+
+## 📫 Let's Work Together
 
 <div align="center">
 
-I'm always open to **interesting projects**, **freelance work**, **collaborations**, or just a good tech conversation.
+I'm always open to **interesting projects**, **freelance gigs**, **open-source collabs**, or simply a great tech conversation.
 
-📧 **Email:** [kkgg7241@gmail.com](mailto:kkgg7241@gmail.com)
-🐙 **GitHub:** [github.com/KiptooMannu](https://github.com/KiptooMannu)
-📍 **Location:** Nairobi, Kenya 🇰🇪
+<br/>
+
+[![Email Me](https://img.shields.io/badge/📧%20Email%20Me-kkgg7241@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kkgg7241@gmail.com)
+[![GitHub Profile](https://img.shields.io/badge/🐙%20GitHub-KiptooMannu-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
+
+<br/>
+
+📍 **Nairobi, Kenya 🇰🇪** &nbsp;|&nbsp; ⏰ **UTC+3** &nbsp;|&nbsp; 💼 **Open to Opportunities**
 
 </div>
 
 ---
 
-<!-- Footer -->
+<!-- ══════════════════════════════════════════════ FOOTER ══ -->
+
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" />
 </div>
 
 <div align="center">
-  <sub>⭐ If you find my work interesting, consider giving a star to a repo! It means a lot 🙏</sub>
+  <sub>⭐ Star a repo if you find my work useful — it really motivates me to keep building! 🙏</sub><br/>
+  <sub>Made with ❤️ from Nairobi, Kenya 🇰🇪 &nbsp;·&nbsp; Last updated: 2026</sub>
 </div>
