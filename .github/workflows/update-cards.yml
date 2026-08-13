@@ -7,15 +7,29 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'profile/**'  # Don't trigger on profile card updates
 
 permissions:
   contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Generate GitHub Stats card
         uses: stats-organization/github-readme-stats-action@v1
@@ -43,7 +57,10 @@ jobs:
       - name: Generate Trophy card
         run: |
           mkdir -p profile
-          curl -L --retry 3 --retry-delay 5 -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2"
+          curl -L --retry 3 --retry-delay 5 \
+            -o profile/trophy.svg \
+            "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2" \
+            || echo "Warning: Trophy generation failed"
 
       - name: Generate Pin cards for top repositories
         run: |
@@ -65,16 +82,28 @@ jobs:
             # URL encode the repo name for the API
             encoded_repo=$(echo "$repo" | jq -sRr @uri)
             
-            # Fetch pin card from GitHub API
-            curl -L --retry 3 --retry-delay 5 \
-              -o "profile/pin-$counter.svg" \
-              "https://github-readme-stats.vercel.app/api/pin/?username=${{ github.repository_owner }}&repo=$encoded_repo&theme=tokyonight&hide_border=true"
+            # Fetch pin card from GitHub API with retry
+            for attempt in 1 2 3; do
+              if curl -L --retry 3 --retry-delay 5 \
+                -o "profile/pin-$counter.svg" \
+                "https://github-readme-stats.vercel.app/api/pin/?username=${{ github.repository_owner }}&repo=$encoded_repo&theme=tokyonight&hide_border=true"; then
+                echo "✓ Created profile/pin-$counter.svg for $repo"
+                break
+              else
+                echo "Attempt $attempt failed for $repo, retrying..."
+                sleep 5
+              fi
+            done
             
-            # Check if the file was created successfully
-            if [ -f "profile/pin-$counter.svg" ]; then
-              echo "✓ Created profile/pin-$counter.svg for $repo"
+            # Check if file was created successfully
+            if [ -f "profile/pin-$counter.svg" ] && [ -s "profile/pin-$counter.svg" ]; then
+              echo "✓ Successfully generated pin card for $repo"
             else
-              echo "✗ Failed to create pin card for $repo"
+              echo "⚠ Warning: Failed to generate pin card for $repo"
+              # Create a placeholder if file doesn't exist
+              if [ ! -f "profile/pin-$counter.svg" ]; then
+                cp profile/stats.svg "profile/pin-$counter.svg" 2>/dev/null || true
+              fi
             fi
             
             counter=$((counter + 1))
@@ -82,8 +111,42 @@ jobs:
 
       - name: Commit and push cards
         run: |
+          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Pull latest changes with rebase
+          echo "Pulling latest changes..."
+          git pull --rebase origin main || true
+          
+          # Add all SVG files
           git add profile/*.svg
-          git diff --cached --quiet && echo "No changes" || git commit -m "chore: refresh profile cards [skip ci]"
-          git push
+          
+          # Check if there are changes to commit
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            echo "Changes detected, committing..."
+            git commit -m "chore: refresh profile cards [skip ci]"
+            
+            # Push with retry logic
+            for attempt in 1 2 3; do
+              echo "Push attempt $attempt..."
+              if git push origin main; then
+                echo "✓ Successfully pushed to main"
+                break
+              else
+                echo "Push failed, pulling and retrying..."
+                git pull --rebase origin main || true
+                sleep 5
+              fi
+            done
+          fi
+
+      - name: Summary
+        run: |
+          echo "===================="
+          echo "Generated files:"
+          ls -la profile/*.svg
+          echo "===================="
+          echo "Workflow completed successfully!"
