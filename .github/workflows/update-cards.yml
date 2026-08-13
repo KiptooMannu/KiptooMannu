@@ -45,59 +45,40 @@ jobs:
           mkdir -p profile
           curl -L --retry 3 --retry-delay 5 -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2"
 
-      - name: Get top repositories by commits
-        id: get-repos
+      - name: Generate Pin cards for top repositories
         run: |
-          # Fetch all repos sorted by pushed_at (recent activity)
+          # Create directory if it doesn't exist
+          mkdir -p profile
+          
+          # Fetch all repos sorted by recent activity
           repos=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=pushed&direction=desc&per_page=100&type=owner")
           
-          # Extract repo names (excluding forks and the profile repo)
-          echo "$repos" | jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' | head -5 > /tmp/top-repos.txt
+          # Extract top 5 non-fork, non-profile repos
+          top_repos=$(echo "$repos" | jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' | head -5)
           
-          # Display selected repos
-          echo "Selected repositories:"
-          cat /tmp/top-repos.txt
-
-      - name: Generate Pin card - Project 1
-        uses: stats-organization/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=$(sed -n '1p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
-          path: profile/pin-1.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate Pin card - Project 2
-        uses: stats-organization/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=$(sed -n '2p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
-          path: profile/pin-2.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate Pin card - Project 3
-        uses: stats-organization/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=$(sed -n '3p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
-          path: profile/pin-3.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate Pin card - Project 4
-        uses: stats-organization/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=$(sed -n '4p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
-          path: profile/pin-4.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate Pin card - Project 5
-        uses: stats-organization/github-readme-stats-action@v1
-        with:
-          card: pin
-          options: username=${{ github.repository_owner }}&repo=$(sed -n '5p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
-          path: profile/pin-5.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Generate pin cards for each repo
+          counter=1
+          for repo in $top_repos; do
+            echo "Generating pin card for: $repo"
+            
+            # URL encode the repo name for the API
+            encoded_repo=$(echo "$repo" | jq -sRr @uri)
+            
+            # Fetch pin card from GitHub API
+            curl -L --retry 3 --retry-delay 5 \
+              -o "profile/pin-$counter.svg" \
+              "https://github-readme-stats.vercel.app/api/pin/?username=${{ github.repository_owner }}&repo=$encoded_repo&theme=tokyonight&hide_border=true"
+            
+            # Check if the file was created successfully
+            if [ -f "profile/pin-$counter.svg" ]; then
+              echo "✓ Created profile/pin-$counter.svg for $repo"
+            else
+              echo "✗ Failed to create pin card for $repo"
+            fi
+            
+            counter=$((counter + 1))
+          done
 
       - name: Commit and push cards
         run: |
