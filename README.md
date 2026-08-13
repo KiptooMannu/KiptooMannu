@@ -16,7 +16,7 @@
 
 </div>
 
-> 📡 Badges above are shields.io (queries the GitHub API live, no reliability issues). The **Stats, Top Languages, Streak, and Trophies** cards below are pre-rendered daily by a GitHub Action into `/profile/*.svg` and served straight from this repo — they no longer depend on the public `vercel.app` demo endpoints, which have been going down/rate-limiting site-wide.
+> 📡 Badges above are shields.io (queries the GitHub API live, no reliability issues). The **Stats, Top Languages, Streak, Trophies, and Featured Projects** cards below are pre-rendered daily by a GitHub Action into `/profile/*.svg` and served straight from this repo — they no longer depend on the public `vercel.app` demo endpoints, which have been going down/rate-limiting site-wide.
 
 ---
 
@@ -215,33 +215,21 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 
 <!-- ══════════════════════════════════════════════ PROJECTS ══ -->
 
-## 🚀 Featured Projects — Live Repo Cards
+## 🚀 Featured Projects — Top Repositories by Recent Activity
 
-> Rendered live via the GitHub API's pin endpoint — real description, stars, forks, and language per repo. Swap `repo=` to feature a different project.
+> Self-hosted via GitHub Actions — automatically selects your top 5 most active repositories and generates pin cards. Updates daily.
 
 <div align="center">
 
-<a href="https://github.com/KiptooMannu/Filtering_JOBS-">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Filtering_JOBS-&theme=tokyonight&hide_border=true&cache_seconds=86400" />
-</a>
-<a href="https://github.com/KiptooMannu/Dark-Mode-Light-Mode-Switch-Dashboard">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Dark-Mode-Light-Mode-Switch-Dashboard&theme=tokyonight&hide_border=true&cache_seconds=86400" />
-</a>
+<img height="150" src="./profile/pin-1.svg" />
+<img height="150" src="./profile/pin-2.svg" />
 
-<a href="https://github.com/KiptooMannu/Image-Search-App-With-API">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Image-Search-App-With-API&theme=tokyonight&hide_border=true&cache_seconds=86400" />
-</a>
-<a href="https://github.com/KiptooMannu/Rest-Countries-API-with-Theme-Switcher">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Rest-Countries-API-with-Theme-Switcher&theme=tokyonight&hide_border=true&cache_seconds=86400" />
-</a>
+<img height="150" src="./profile/pin-3.svg" />
+<img height="150" src="./profile/pin-4.svg" />
 
-<a href="https://github.com/KiptooMannu/News--home--pages-Flex-Assignment">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=News--home--pages-Flex-Assignment&theme=tokyonight&hide_border=true&cache_seconds=86400" />
-</a>
+<img height="150" src="./profile/pin-5.svg" />
 
 </div>
-
-> ℹ️ These pin cards still call the public endpoint (the pin endpoint is separately rate-limited and has been more stable than the stats/trophy ones). If these also start breaking, the same self-hosted pattern applies — `card: pin` on the `stats-organization/github-readme-stats-action` — say the word and I'll add it to the workflow.
 
 ---
 
