@@ -1,7 +1,19 @@
-<svg width="400" height="150" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="150" rx="10" fill="#1a1b27" stroke="#70a5fd" stroke-width="2"/>
-  <text x="20" y="35" font-family="Arial" font-size="18" font-weight="bold" fill="#70a5fd">Client-Worker-Connection-Platform</text>
-  <text x="20" y="65" font-family="Arial" font-size="14" fill="#a9b1d6">A full-stack freelance marketplace connecting clients with skilled workers through secure hiring, escrow payments, real-time messaging, worker verification, dispute resolution, and review management.</text>
-  <text x="20" y="95" font-family="Arial" font-size="13" fill="#9ece6a">Stars: 8 | Forks: 0 | Language: TypeScript</text>
-  <text x="20" y="120" font-family="Arial" font-size="12" fill="#7aa2f7">github.com/KiptooMannu/Client-Worker-Connection-Platform</text>
+<svg width="450" height="220" viewBox="0 0 450 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1b27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#24283b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="450" height="220" rx="12" fill="url(#bg1)" stroke="#70a5fd" stroke-width="2"/>
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#7aa2f7">Client-Worker-Connection-Platform</text>
+  <text x="20" y="60" font-family="Arial, sans-serif" font-size="13" fill="#a9b1d6">A full-stack freelance marketplace connecting clients with skilled workers th...</text>
+  <circle cx="22" cy="80" r="6" fill="#9ece6a"/>
+  <text x="35" y="84" font-family="Arial, sans-serif" font-size="13" fill="#c0caf5">Primary: TypeScript</text>
+  <text x="20" y="105" font-family="Arial, sans-serif" font-size="11" fill="#565f89">Languages: CSS, HTML, SCSS, TypeScript</text>
+  <text x="20" y="125" font-family="Arial, sans-serif" font-size="11" fill="#7dcfff">Topics: No topics</text>
+  <text x="20" y="150" font-family="Arial, sans-serif" font-size="13" fill="#e0af68">Stars: 8 | Forks: 0 | Watchers: 8 | Issues: 0</text>
+  <text x="20" y="172" font-family="Arial, sans-serif" font-size="11" fill="#565f89">License: MIT License | Created: 2026-04-24 | Updated: 2026-07-31</text>
+  <text x="20" y="192" font-family="Arial, sans-serif" font-size="11" fill="#bb9af7">Homepage: https://client-worker-connection-platform.vercel.app</text>
+  <text x="20" y="210" font-family="Arial, sans-serif" font-size="11" fill="#7aa2f7">github.com/KiptooMannu/Client-Worker-Connection-Platform</text>
 </svg>
