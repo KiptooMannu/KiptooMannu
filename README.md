@@ -12,9 +12,11 @@
 [![Profile Views](https://komarev.com/ghpvc/?username=KiptooMannu&style=for-the-badge&color=6E40C9&label=PROFILE+VIEWS)](https://github.com/KiptooMannu)
 [![GitHub followers](https://img.shields.io/github/followers/KiptooMannu?style=for-the-badge&color=6E40C9&label=FOLLOWERS)](https://github.com/KiptooMannu?tab=followers)
 [![GitHub Stars](https://img.shields.io/github/stars/KiptooMannu?style=for-the-badge&color=6E40C9&label=STARS)](https://github.com/KiptooMannu)
-[![Repos](https://img.shields.io/badge/REPOSITORIES-67-6E40C9?style=for-the-badge)](https://github.com/KiptooMannu?tab=repositories)
+[![Repos](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=6E40C9&label=REPOSITORIES&query=public_repos&url=https://api.github.com/users/KiptooMannu)](https://github.com/KiptooMannu?tab=repositories)
 
 </div>
+
+> 📡 Every stat, badge, language bar, and project card below is fetched live from the GitHub API by the hosting widget each time this page loads — nothing here is hand-typed or hardcoded.
 
 ---
 
@@ -55,34 +57,16 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 
 <br/><br/>
 
-| 📋 | Info |
+| 📋 | Info (live ↑ via badges) |
 |---|---|
 | 💼 | Full Stack Developer |
 | 🌍 | Nairobi, Kenya |
-| 💻 | 67+ Repositories |
-| 👥 | 139+ Followers |
 | ✉️ | kkgg7241@gmail.com |
 | ⏰ | UTC+3 Timezone |
 
 </td>
 </tr>
 </table>
-
----
-
-<!-- ══════════════════════════════════════ QUICK STATS CARDS ══ -->
-
-## 📊 At a Glance
-
-<div align="center">
-
-| 🚀 Expertise | 📦 Projects | 🎯 Current Focus | 🌐 Location |
-|:---:|:---:|:---:|:---:|
-| Full Stack Dev | 67+ Repos | Microservices | Nairobi, Kenya |
-| Backend Architect | 5+ Featured | System Design | 🇰🇪 East Africa |
-| API Developer | Open Source Contributor | Cloud & DevOps | UTC+3 |
-
-</div>
 
 ---
 
@@ -96,7 +80,6 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/KiptooMannu)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/KiptooMannu)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://github.com/KiptooMannu)
 
 </div>
 
@@ -207,7 +190,7 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 <br/>
 
 <div align="center">
-  <img width="65%" src="https://github-readme-streak-stats.herokuapp.com/?user=KiptooMannu&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <img width="65%" src="https://streak-stats.demolab.com?user=KiptooMannu&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 </div>
 
 ---
@@ -230,90 +213,31 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 
 <!-- ══════════════════════════════════════════════ PROJECTS ══ -->
 
-## 🚀 Featured Projects
+## 🚀 Featured Projects — Live Repo Cards
 
-<table>
-<tr>
-<td width="50%" valign="top">
+> Each card below is rendered live by querying that repo's real name, description, star count, fork count, and primary language straight from the GitHub API — swap the `repo=` value any time you want to feature a different project, no manual editing of tech stacks required.
 
-### 🚗 Vehicle Management System
+<div align="center">
 
-> Full-stack fleet & booking management platform
+<a href="https://github.com/KiptooMannu/Filtering_JOBS-">
+  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Filtering_JOBS-&theme=tokyonight&hide_border=true" />
+</a>
+<a href="https://github.com/KiptooMannu/Dark-Mode-Light-Mode-Switch-Dashboard">
+  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Dark-Mode-Light-Mode-Switch-Dashboard&theme=tokyonight&hide_border=true" />
+</a>
 
-![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)
-![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
-![JWT](https://img.shields.io/badge/-JWT-000?style=flat-square&logo=jsonwebtokens&logoColor=white)
+<a href="https://github.com/KiptooMannu/Image-Search-App-With-API">
+  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Image-Search-App-With-API&theme=tokyonight&hide_border=true" />
+</a>
+<a href="https://github.com/KiptooMannu/Rest-Countries-API-with-Theme-Switcher">
+  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=Rest-Countries-API-with-Theme-Switcher&theme=tokyonight&hide_border=true" />
+</a>
 
-- 🔐 Secure JWT authentication & RBAC
-- 🚘 Admin fleet management dashboard
-- 📅 Real-time vehicle booking & scheduling
-- 💳 Payment processing & transaction history
-- 📊 Analytics dashboard with booking trends
-- 👥 Multi-role: Admin / Staff / User
+<a href="https://github.com/KiptooMannu/News--home--pages-Flex-Assignment">
+  <img height="150" src="https://github-readme-stats.vercel.app/api/pin/?username=KiptooMannu&repo=News--home--pages-Flex-Assignment&theme=tokyonight&hide_border=true" />
+</a>
 
-[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
-
-</td>
-<td width="50%" valign="top">
-
-### 💼 Kazi Konnect
-
-> Service marketplace connecting workers & clients across Kenya
-
-![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![React](https://img.shields.io/badge/-React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
-![REST](https://img.shields.io/badge/-REST%20API-FF6C37?style=flat-square&logo=postman&logoColor=white)
-
-- 👤 Rich worker & client profiles with ratings
-- 🔒 JWT auth with role-based access
-- 📸 Portfolio & profile image uploads
-- 💬 Real-time in-app messaging
-- 📋 Service booking & status tracking
-- ⭐ Client feedback & review system
-
-[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu)
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🌍 REST Countries — Theme Switcher
-
-> Country data explorer with dynamic dark/light theme
-
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-
-- 🌐 Live country data — flags, capitals, population
-- 🌙 Smooth dark/light mode with localStorage
-- 🔍 Search & region filter functionality
-- 📱 Fully responsive design
-
-[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Rest-Countries-API-with-Theme-Switcher)
-
-</td>
-<td width="50%" valign="top">
-
-### 🖼️ Image Search App
-
-> Fast image discovery powered by Unsplash API
-
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-
-- 🔎 Real-time search across millions of images
-- ♾️ Load-more / infinite scroll pagination
-- 📐 Responsive masonry grid layout
-- ⚡ Optimized for fast loading
-
-[![View Repo](https://img.shields.io/badge/View%20Repo-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Image-Search-App-With-API)
-
-</td>
-</tr>
-</table>
+</div>
 
 ---
 
@@ -331,25 +255,6 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 | 📐 System Design | Scalability, Load Balancing, Caching | 📖 Studying |
 | 🧪 Testing | TDD, Jest, JUnit 5, Integration Tests | 📖 Studying |
 | 📱 Mobile | React Native basics | 🔜 Upcoming |
-
-</div>
-
----
-
-<!-- ══════════════════════════════════════════════ ACHIEVEMENTS ══ -->
-
-## 🎖️ GitHub Achievements & Highlights
-
-<div align="center">
-
-| 🏅 Achievement | 📝 Description |
-|:---:|---|
-| 🦈 Pull Shark | Merged multiple pull requests — collaboration pro |
-| ⭐ 39+ Stars | Received across repositories from the community |
-| 👥 139+ Followers | Growing developer community on GitHub |
-| 📦 67 Repositories | Active builder — always shipping something |
-| 🌐 Open Source | Contributing back to the dev community |
-| 🇰🇪 Nairobi Dev | Part of Kenya's Silicon Savannah tech scene |
 
 </div>
 
@@ -426,5 +331,5 @@ I'm always open to **interesting projects**, **freelance gigs**, **open-source c
 
 <div align="center">
   <sub>⭐ Star a repo if you find my work useful — it really motivates me to keep building! 🙏</sub><br/>
-  <sub>Made with ❤️ from Nairobi, Kenya 🇰🇪 &nbsp;·&nbsp; Last updated: 2026</sub>
+  <sub>Made with ❤️ from Nairobi, Kenya 🇰🇪</sub>
 </div>
