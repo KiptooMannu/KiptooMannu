@@ -41,15 +41,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Trophy card
-        uses: Erik-Donath/github-profile-trophy@feature/generate-svg
-        with:
-          username: ${{ github.repository_owner }}
-          file: profile/trophy.svg  # Changed from output_path to file
-          token: ${{ secrets.GITHUB_TOKEN }}
-          theme: tokyonight
-          no-frame: true
-          max-cols: 4
-          max-rows: 2
+        run: |
+          mkdir -p profile
+          curl -L -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2"
 
       - name: Commit and push cards
         run: |
