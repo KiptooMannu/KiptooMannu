@@ -43,7 +43,48 @@ jobs:
       - name: Generate Trophy card
         run: |
           mkdir -p profile
-          curl -L -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2"
+          curl -L --retry 3 --retry-delay 5 -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2"
+
+      # Generate Pin cards for featured projects
+      - name: Generate Pin card - Filtering JOBS
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=Filtering_JOBS-&theme=tokyonight&hide_border=true
+          path: profile/pin-1.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Pin card - Dark Mode Dashboard
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=Dark-Mode-Light-Mode-Switch-Dashboard&theme=tokyonight&hide_border=true
+          path: profile/pin-2.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Pin card - Image Search App
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=Image-Search-App-With-API&theme=tokyonight&hide_border=true
+          path: profile/pin-3.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Pin card - Rest Countries API
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=Rest-Countries-API-with-Theme-Switcher&theme=tokyonight&hide_border=true
+          path: profile/pin-4.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Pin card - News Home Pages
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=News--home--pages-Flex-Assignment&theme=tokyonight&hide_border=true
+          path: profile/pin-5.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit and push cards
         run: |
