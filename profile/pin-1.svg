@@ -1,5 +1,7 @@
-The deployment is currently unavailable
-
-DEPLOYMENT_PAUSED
-
-sfo1::m64pc-1786609591340-1eb0766f24c5
+<svg width="400" height="150" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="150" rx="10" fill="#1a1b27" stroke="#70a5fd" stroke-width="2"/>
+  <text x="20" y="35" font-family="Arial" font-size="18" font-weight="bold" fill="#70a5fd">Client-Worker-Connection-Platform</text>
+  <text x="20" y="65" font-family="Arial" font-size="14" fill="#a9b1d6">A full-stack freelance marketplace connecting clients with skilled workers through secure hiring, escrow payments, real-time messaging, worker verification, dispute resolution, and review management.</text>
+  <text x="20" y="95" font-family="Arial" font-size="13" fill="#9ece6a">Stars: 8 | Forks: 0 | Language: TypeScript</text>
+  <text x="20" y="120" font-family="Arial" font-size="12" fill="#7aa2f7">github.com/KiptooMannu/Client-Worker-Connection-Platform</text>
+</svg>
