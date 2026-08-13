@@ -45,44 +45,57 @@ jobs:
           mkdir -p profile
           curl -L --retry 3 --retry-delay 5 -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2"
 
-      # Generate Pin cards for featured projects
-      - name: Generate Pin card - Filtering JOBS
+      - name: Get top repositories by commits
+        id: get-repos
+        run: |
+          # Fetch all repos sorted by pushed_at (recent activity)
+          repos=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=pushed&direction=desc&per_page=100&type=owner")
+          
+          # Extract repo names (excluding forks and the profile repo)
+          echo "$repos" | jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' | head -5 > /tmp/top-repos.txt
+          
+          # Display selected repos
+          echo "Selected repositories:"
+          cat /tmp/top-repos.txt
+
+      - name: Generate Pin card - Project 1
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: pin
-          options: username=${{ github.repository_owner }}&repo=Filtering_JOBS-&theme=tokyonight&hide_border=true
+          options: username=${{ github.repository_owner }}&repo=$(sed -n '1p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
           path: profile/pin-1.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Pin card - Dark Mode Dashboard
+      - name: Generate Pin card - Project 2
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: pin
-          options: username=${{ github.repository_owner }}&repo=Dark-Mode-Light-Mode-Switch-Dashboard&theme=tokyonight&hide_border=true
+          options: username=${{ github.repository_owner }}&repo=$(sed -n '2p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
           path: profile/pin-2.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Pin card - Image Search App
+      - name: Generate Pin card - Project 3
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: pin
-          options: username=${{ github.repository_owner }}&repo=Image-Search-App-With-API&theme=tokyonight&hide_border=true
+          options: username=${{ github.repository_owner }}&repo=$(sed -n '3p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
           path: profile/pin-3.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Pin card - Rest Countries API
+      - name: Generate Pin card - Project 4
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: pin
-          options: username=${{ github.repository_owner }}&repo=Rest-Countries-API-with-Theme-Switcher&theme=tokyonight&hide_border=true
+          options: username=${{ github.repository_owner }}&repo=$(sed -n '4p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
           path: profile/pin-4.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Pin card - News Home Pages
+      - name: Generate Pin card - Project 5
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: pin
-          options: username=${{ github.repository_owner }}&repo=News--home--pages-Flex-Assignment&theme=tokyonight&hide_border=true
+          options: username=${{ github.repository_owner }}&repo=$(sed -n '5p' /tmp/top-repos.txt)&theme=tokyonight&hide_border=true
           path: profile/pin-5.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
