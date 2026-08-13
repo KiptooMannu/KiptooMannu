@@ -2,13 +2,13 @@ name: Update Profile Cards
 
 on:
   schedule:
-    - cron: "0 3 * * *"   # daily at 03:00 UTC
+    - cron: "0 3 * * *"
   workflow_dispatch: {}
   push:
     branches:
       - main
     paths-ignore:
-      - 'profile/**'  # Don't trigger on profile card updates
+      - 'profile/**'
 
 permissions:
   contents: write
@@ -62,7 +62,7 @@ jobs:
             "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2" \
             || echo "Warning: Trophy generation failed"
 
-      - name: Generate Pin cards for top repositories
+      - name: Generate Pin cards using GitHub API
         run: |
           # Create directory if it doesn't exist
           mkdir -p profile
@@ -71,43 +71,59 @@ jobs:
           repos=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=pushed&direction=desc&per_page=100&type=owner")
           
-          # Extract top 5 non-fork, non-profile repos
-          top_repos=$(echo "$repos" | jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' | head -5)
+          # Extract top 5 non-fork, non-profile repos with their data
+          echo "$repos" | jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | [.name, .description, .stargazers_count, .forks_count, .language, .html_url] | @tsv' | head -5 > /tmp/top_repos.tsv
           
-          # Generate pin cards for each repo
+          # Display selected repos
+          echo "Selected repositories:"
+          cat /tmp/top_repos.tsv
+          
+          # Generate custom SVG pin cards
           counter=1
-          for repo in $top_repos; do
-            echo "Generating pin card for: $repo"
+          while IFS=$'\t' read -r repo_name description stars forks language url; do
+            echo "Generating pin card for: $repo_name"
             
-            # URL encode the repo name for the API
-            encoded_repo=$(echo "$repo" | jq -sRr @uri)
-            
-            # Fetch pin card from GitHub API with retry
-            for attempt in 1 2 3; do
-              if curl -L --retry 3 --retry-delay 5 \
-                -o "profile/pin-$counter.svg" \
-                "https://github-readme-stats.vercel.app/api/pin/?username=${{ github.repository_owner }}&repo=$encoded_repo&theme=tokyonight&hide_border=true"; then
-                echo "✓ Created profile/pin-$counter.svg for $repo"
-                break
-              else
-                echo "Attempt $attempt failed for $repo, retrying..."
-                sleep 5
-              fi
-            done
-            
-            # Check if file was created successfully
-            if [ -f "profile/pin-$counter.svg" ] && [ -s "profile/pin-$counter.svg" ]; then
-              echo "✓ Successfully generated pin card for $repo"
-            else
-              echo "⚠ Warning: Failed to generate pin card for $repo"
-              # Create a placeholder if file doesn't exist
-              if [ ! -f "profile/pin-$counter.svg" ]; then
-                cp profile/stats.svg "profile/pin-$counter.svg" 2>/dev/null || true
-              fi
+            # Clean description (handle null)
+            if [ "$description" = "null" ] || [ -z "$description" ]; then
+              description="No description provided"
             fi
             
+            # Clean language (handle null)
+            if [ "$language" = "null" ] || [ -z "$language" ]; then
+              language="N/A"
+            fi
+            
+            # Truncate description
+            short_description=$(echo "$description" | cut -c1-60)
+            if [ ${#description} -gt 60 ]; then
+              short_description="${short_description}..."
+            fi
+            
+            # Generate custom SVG pin card
+            cat > "profile/pin-$counter.svg" << 'SVGEOF'
+<svg width="400" height="150" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Repository Card">
+  <style>
+    .card-bg { fill: #1a1b27; stroke: #70a5fd; stroke-width: 2; }
+    .repo-name { font: bold 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
+    .repo-desc { font: 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #a9b1d6; }
+    .repo-stats { font: 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #9ece6a; }
+    .repo-link { font: 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #7aa2f7; }
+  </style>
+  <rect x="0.5" y="0.5" width="399" height="149" rx="10" class="card-bg"/>
+SVGEOF
+            
+            # Append dynamic content
+            cat >> "profile/pin-$counter.svg" << EOF
+  <text x="20" y="35" class="repo-name">$repo_name</text>
+  <text x="20" y="65" class="repo-desc">$short_description</text>
+  <text x="20" y="95" class="repo-stats">Stars: $stars | Forks: $forks | Language: $language</text>
+  <text x="20" y="120" class="repo-link">$url</text>
+</svg>
+EOF
+            
+            echo "✓ Created profile/pin-$counter.svg for $repo_name"
             counter=$((counter + 1))
-          done
+          done < /tmp/top_repos.tsv
 
       - name: Commit and push cards
         run: |
@@ -133,7 +149,7 @@ jobs:
             for attempt in 1 2 3; do
               echo "Push attempt $attempt..."
               if git push origin main; then
-                echo "✓ Successfully pushed to main"
+                echo "Successfully pushed to main"
                 break
               else
                 echo "Push failed, pulling and retrying..."
@@ -148,5 +164,15 @@ jobs:
           echo "===================="
           echo "Generated files:"
           ls -la profile/*.svg
+          echo "===================="
+          echo "Checking file sizes..."
+          for f in profile/*.svg; do
+            size=$(stat -c%s "$f")
+            if [ $size -lt 1000 ]; then
+              echo "Warning: $f is small ($size bytes) - might be an error"
+            else
+              echo "OK: $f: $size bytes"
+            fi
+          done
           echo "===================="
           echo "Workflow completed successfully!"
