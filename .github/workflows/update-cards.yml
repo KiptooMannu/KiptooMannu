@@ -59,48 +59,114 @@ jobs:
           mkdir -p profile
           curl -L --retry 3 --retry-delay 5 -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2" || echo "Warning: Trophy generation failed"
 
-      - name: Generate Pin cards
+      - name: Generate Detailed Project Cards
         run: |
           mkdir -p profile
           
-          # Fetch top repos
+          # Fetch all repos with full details
           curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=pushed&direction=desc&per_page=100&type=owner" > /tmp/repos.json
           
-          # Get top 5 repo names
-          jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' /tmp/repos.json | head -5 > /tmp/top_repos.txt
+          # Get top 6 repos
+          jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' /tmp/repos.json | head -6 > /tmp/top_repos.txt
           
-          # Generate pin cards
+          echo "Top repositories:"
+          cat /tmp/top_repos.txt
+          echo "---"
+          
+          # Generate detailed cards for each repo
           counter=1
           while read repo; do
-            echo "Generating card for: $repo"
+            echo "Generating detailed card for: $repo"
             
-            # Get repo data
-            name=$(jq -r ".[] | select(.name == \"$repo\") | .name" /tmp/repos.json)
-            desc=$(jq -r ".[] | select(.name == \"$repo\") | .description" /tmp/repos.json)
-            stars=$(jq -r ".[] | select(.name == \"$repo\") | .stargazers_count" /tmp/repos.json)
-            forks=$(jq -r ".[] | select(.name == \"$repo\") | .forks_count" /tmp/repos.json)
-            lang=$(jq -r ".[] | select(.name == \"$repo\") | .language" /tmp/repos.json)
+            # Get full repo details
+            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository_owner }}/$repo" > /tmp/repo_details.json
+            
+            # Extract details
+            name=$(jq -r '.name' /tmp/repo_details.json)
+            full_name=$(jq -r '.full_name' /tmp/repo_details.json)
+            description=$(jq -r '.description' /tmp/repo_details.json)
+            homepage=$(jq -r '.homepage' /tmp/repo_details.json)
+            language=$(jq -r '.language' /tmp/repo_details.json)
+            stars=$(jq -r '.stargazers_count' /tmp/repo_details.json)
+            forks=$(jq -r '.forks_count' /tmp/repo_details.json)
+            watchers=$(jq -r '.watchers_count' /tmp/repo_details.json)
+            open_issues=$(jq -r '.open_issues_count' /tmp/repo_details.json)
+            created_at=$(jq -r '.created_at' /tmp/repo_details.json)
+            updated_at=$(jq -r '.updated_at' /tmp/repo_details.json)
+            license=$(jq -r '.license.name' /tmp/repo_details.json)
+            topics=$(jq -r '.topics | join(", ")' /tmp/repo_details.json)
+            
+            # Get languages
+            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository_owner }}/$repo/languages" > /tmp/repo_languages.json
+            languages=$(jq -r 'keys | join(", ")' /tmp/repo_languages.json)
             
             # Handle null values
-            if [ "$desc" = "null" ] || [ -z "$desc" ]; then
-              desc="No description"
+            if [ "$description" = "null" ] || [ -z "$description" ]; then
+              description="No description provided"
             fi
-            if [ "$lang" = "null" ] || [ -z "$lang" ]; then
-              lang="N/A"
+            if [ "$homepage" = "null" ] || [ -z "$homepage" ]; then
+              homepage="N/A"
+            fi
+            if [ "$language" = "null" ] || [ -z "$language" ]; then
+              language="N/A"
+            fi
+            if [ "$license" = "null" ] || [ -z "$license" ]; then
+              license="No license"
+            fi
+            if [ "$topics" = "null" ] || [ -z "$topics" ]; then
+              topics="No topics"
+            fi
+            if [ "$languages" = "null" ] || [ -z "$languages" ]; then
+              languages="$language"
             fi
             
-            # Create SVG
-            echo "<svg width=\"400\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\">" > "profile/pin-$counter.svg"
-            echo "  <rect width=\"400\" height=\"150\" rx=\"10\" fill=\"#1a1b27\" stroke=\"#70a5fd\" stroke-width=\"2\"/>" >> "profile/pin-$counter.svg"
-            echo "  <text x=\"20\" y=\"35\" font-family=\"Arial\" font-size=\"18\" font-weight=\"bold\" fill=\"#70a5fd\">$name</text>" >> "profile/pin-$counter.svg"
-            echo "  <text x=\"20\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#a9b1d6\">$desc</text>" >> "profile/pin-$counter.svg"
-            echo "  <text x=\"20\" y=\"95\" font-family=\"Arial\" font-size=\"13\" fill=\"#9ece6a\">Stars: $stars | Forks: $forks | Language: $lang</text>" >> "profile/pin-$counter.svg"
-            echo "  <text x=\"20\" y=\"120\" font-family=\"Arial\" font-size=\"12\" fill=\"#7aa2f7\">github.com/${{ github.repository_owner }}/$repo</text>" >> "profile/pin-$counter.svg"
+            # Format dates
+            created_date=$(echo "$created_at" | cut -d'T' -f1)
+            updated_date=$(echo "$updated_at" | cut -d'T' -f1)
+            
+            # Truncate long text
+            short_desc=$(echo "$description" | cut -c1-77)
+            if [ ${#description} -gt 77 ]; then
+              short_desc="${short_desc}..."
+            fi
+            
+            short_topics=$(echo "$topics" | cut -c1-47)
+            if [ ${#topics} -gt 47 ]; then
+              short_topics="${short_topics}..."
+            fi
+            
+            # Create SVG using echo commands
+            echo "<svg width=\"450\" height=\"220\" viewBox=\"0 0 450 220\" xmlns=\"http://www.w3.org/2000/svg\">" > "profile/pin-$counter.svg"
+            echo "  <defs>" >> "profile/pin-$counter.svg"
+            echo "    <linearGradient id=\"bg$counter\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">" >> "profile/pin-$counter.svg"
+            echo "      <stop offset=\"0%\" style=\"stop-color:#1a1b27;stop-opacity:1\" />" >> "profile/pin-$counter.svg"
+            echo "      <stop offset=\"100%\" style=\"stop-color:#24283b;stop-opacity:1\" />" >> "profile/pin-$counter.svg"
+            echo "    </linearGradient>" >> "profile/pin-$counter.svg"
+            echo "  </defs>" >> "profile/pin-$counter.svg"
+            echo "  <rect width=\"450\" height=\"220\" rx=\"12\" fill=\"url(#bg$counter)\" stroke=\"#70a5fd\" stroke-width=\"2\"/>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"35\" font-family=\"Arial, sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"#7aa2f7\">$name</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"60\" font-family=\"Arial, sans-serif\" font-size=\"13\" fill=\"#a9b1d6\">$short_desc</text>" >> "profile/pin-$counter.svg"
+            echo "  <circle cx=\"22\" cy=\"80\" r=\"6\" fill=\"#9ece6a\"/>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"35\" y=\"84\" font-family=\"Arial, sans-serif\" font-size=\"13\" fill=\"#c0caf5\">Primary: $language</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"105\" font-family=\"Arial, sans-serif\" font-size=\"11\" fill=\"#565f89\">Languages: $languages</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"125\" font-family=\"Arial, sans-serif\" font-size=\"11\" fill=\"#7dcfff\">Topics: $short_topics</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"150\" font-family=\"Arial, sans-serif\" font-size=\"13\" fill=\"#e0af68\">Stars: $stars | Forks: $forks | Watchers: $watchers | Issues: $open_issues</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"172\" font-family=\"Arial, sans-serif\" font-size=\"11\" fill=\"#565f89\">License: $license | Created: $created_date | Updated: $updated_date</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"192\" font-family=\"Arial, sans-serif\" font-size=\"11\" fill=\"#bb9af7\">Homepage: $homepage</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"210\" font-family=\"Arial, sans-serif\" font-size=\"11\" fill=\"#7aa2f7\">github.com/$full_name</text>" >> "profile/pin-$counter.svg"
             echo "</svg>" >> "profile/pin-$counter.svg"
             
-            echo "Created profile/pin-$counter.svg"
+            if [ -f "profile/pin-$counter.svg" ] && [ -s "profile/pin-$counter.svg" ]; then
+              echo "Created detailed card for $repo"
+            else
+              echo "Failed to create card for $repo"
+            fi
+            
             counter=$((counter + 1))
           done < /tmp/top_repos.txt
+          
+          echo "---"
+          echo "Total cards generated: $((counter - 1))"
 
       - name: Commit and push cards
         run: |
@@ -114,7 +180,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: refresh profile cards [skip ci]"
+            git commit -m "chore: refresh profile cards with detailed project info [skip ci]"
             
             for attempt in 1 2 3; do
               echo "Push attempt $attempt"
@@ -130,6 +196,16 @@ jobs:
 
       - name: Summary
         run: |
+          echo "===================="
           echo "Generated files:"
           ls -la profile/*.svg
-          echo "Workflow completed!"
+          echo "===================="
+          echo "File sizes:"
+          for f in profile/pin-*.svg; do
+            if [ -f "$f" ]; then
+              size=$(stat -c%s "$f")
+              echo "  $f: $size bytes"
+            fi
+          done
+          echo "===================="
+          echo "Workflow completed successfully!"
