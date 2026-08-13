@@ -44,8 +44,12 @@ jobs:
         uses: Erik-Donath/github-profile-trophy@feature/generate-svg
         with:
           username: ${{ github.repository_owner }}
-          output_path: profile/trophy.svg
+          file: profile/trophy.svg  # Changed from output_path to file
           token: ${{ secrets.GITHUB_TOKEN }}
+          theme: tokyonight
+          no-frame: true
+          max-cols: 4
+          max-rows: 2
 
       - name: Commit and push cards
         run: |
