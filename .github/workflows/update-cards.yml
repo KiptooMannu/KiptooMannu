@@ -57,102 +57,71 @@ jobs:
       - name: Generate Trophy card
         run: |
           mkdir -p profile
-          curl -L --retry 3 --retry-delay 5 \
-            -o profile/trophy.svg \
-            "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2" \
-            || echo "Warning: Trophy generation failed"
+          curl -L --retry 3 --retry-delay 5 -o profile/trophy.svg "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=tokyonight&no-frame=true&column=4&row=2" || echo "Warning: Trophy generation failed"
 
-      - name: Generate Pin cards using GitHub API
+      - name: Generate Pin cards
         run: |
-          # Create directory if it doesn't exist
           mkdir -p profile
           
-          # Fetch all repos sorted by recent activity
-          repos=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=pushed&direction=desc&per_page=100&type=owner")
+          # Fetch top repos
+          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=pushed&direction=desc&per_page=100&type=owner" > /tmp/repos.json
           
-          # Extract top 5 non-fork, non-profile repos with their data
-          echo "$repos" | jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | [.name, .description, .stargazers_count, .forks_count, .language, .html_url] | @tsv' | head -5 > /tmp/top_repos.tsv
+          # Get top 5 repo names
+          jq -r '.[] | select(.fork == false) | select(.name != "'${{ github.repository_owner }}'") | .name' /tmp/repos.json | head -5 > /tmp/top_repos.txt
           
-          # Display selected repos
-          echo "Selected repositories:"
-          cat /tmp/top_repos.tsv
-          
-          # Generate custom SVG pin cards
+          # Generate pin cards
           counter=1
-          while IFS=$'\t' read -r repo_name description stars forks language url; do
-            echo "Generating pin card for: $repo_name"
+          while read repo; do
+            echo "Generating card for: $repo"
             
-            # Clean description (handle null)
-            if [ "$description" = "null" ] || [ -z "$description" ]; then
-              description="No description provided"
+            # Get repo data
+            name=$(jq -r ".[] | select(.name == \"$repo\") | .name" /tmp/repos.json)
+            desc=$(jq -r ".[] | select(.name == \"$repo\") | .description" /tmp/repos.json)
+            stars=$(jq -r ".[] | select(.name == \"$repo\") | .stargazers_count" /tmp/repos.json)
+            forks=$(jq -r ".[] | select(.name == \"$repo\") | .forks_count" /tmp/repos.json)
+            lang=$(jq -r ".[] | select(.name == \"$repo\") | .language" /tmp/repos.json)
+            
+            # Handle null values
+            if [ "$desc" = "null" ] || [ -z "$desc" ]; then
+              desc="No description"
+            fi
+            if [ "$lang" = "null" ] || [ -z "$lang" ]; then
+              lang="N/A"
             fi
             
-            # Clean language (handle null)
-            if [ "$language" = "null" ] || [ -z "$language" ]; then
-              language="N/A"
-            fi
+            # Create SVG
+            echo "<svg width=\"400\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\">" > "profile/pin-$counter.svg"
+            echo "  <rect width=\"400\" height=\"150\" rx=\"10\" fill=\"#1a1b27\" stroke=\"#70a5fd\" stroke-width=\"2\"/>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"35\" font-family=\"Arial\" font-size=\"18\" font-weight=\"bold\" fill=\"#70a5fd\">$name</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"65\" font-family=\"Arial\" font-size=\"14\" fill=\"#a9b1d6\">$desc</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"95\" font-family=\"Arial\" font-size=\"13\" fill=\"#9ece6a\">Stars: $stars | Forks: $forks | Language: $lang</text>" >> "profile/pin-$counter.svg"
+            echo "  <text x=\"20\" y=\"120\" font-family=\"Arial\" font-size=\"12\" fill=\"#7aa2f7\">github.com/${{ github.repository_owner }}/$repo</text>" >> "profile/pin-$counter.svg"
+            echo "</svg>" >> "profile/pin-$counter.svg"
             
-            # Truncate description
-            short_description=$(echo "$description" | cut -c1-60)
-            if [ ${#description} -gt 60 ]; then
-              short_description="${short_description}..."
-            fi
-            
-            # Generate custom SVG pin card
-            cat > "profile/pin-$counter.svg" << 'SVGEOF'
-<svg width="400" height="150" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Repository Card">
-  <style>
-    .card-bg { fill: #1a1b27; stroke: #70a5fd; stroke-width: 2; }
-    .repo-name { font: bold 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
-    .repo-desc { font: 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #a9b1d6; }
-    .repo-stats { font: 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #9ece6a; }
-    .repo-link { font: 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #7aa2f7; }
-  </style>
-  <rect x="0.5" y="0.5" width="399" height="149" rx="10" class="card-bg"/>
-SVGEOF
-            
-            # Append dynamic content
-            cat >> "profile/pin-$counter.svg" << EOF
-  <text x="20" y="35" class="repo-name">$repo_name</text>
-  <text x="20" y="65" class="repo-desc">$short_description</text>
-  <text x="20" y="95" class="repo-stats">Stars: $stars | Forks: $forks | Language: $language</text>
-  <text x="20" y="120" class="repo-link">$url</text>
-</svg>
-EOF
-            
-            echo "✓ Created profile/pin-$counter.svg for $repo_name"
+            echo "Created profile/pin-$counter.svg"
             counter=$((counter + 1))
-          done < /tmp/top_repos.tsv
+          done < /tmp/top_repos.txt
 
       - name: Commit and push cards
         run: |
-          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Pull latest changes with rebase
-          echo "Pulling latest changes..."
           git pull --rebase origin main || true
           
-          # Add all SVG files
           git add profile/*.svg
           
-          # Check if there are changes to commit
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            echo "Changes detected, committing..."
             git commit -m "chore: refresh profile cards [skip ci]"
             
-            # Push with retry logic
             for attempt in 1 2 3; do
-              echo "Push attempt $attempt..."
+              echo "Push attempt $attempt"
               if git push origin main; then
-                echo "Successfully pushed to main"
+                echo "Successfully pushed"
                 break
               else
-                echo "Push failed, pulling and retrying..."
                 git pull --rebase origin main || true
                 sleep 5
               fi
@@ -161,18 +130,6 @@ EOF
 
       - name: Summary
         run: |
-          echo "===================="
           echo "Generated files:"
           ls -la profile/*.svg
-          echo "===================="
-          echo "Checking file sizes..."
-          for f in profile/*.svg; do
-            size=$(stat -c%s "$f")
-            if [ $size -lt 1000 ]; then
-              echo "Warning: $f is small ($size bytes) - might be an error"
-            else
-              echo "OK: $f: $size bytes"
-            fi
-          done
-          echo "===================="
-          echo "Workflow completed successfully!"
+          echo "Workflow completed!"
