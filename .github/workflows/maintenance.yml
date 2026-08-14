@@ -1,0 +1,61 @@
+name: Repository Maintenance
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-maintenance
+  cancel-in-progress: false
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "kiptooMannu"
+          git config user.email "kkgg7241@gmail.com"
+
+      - name: Update maintenance log
+        run: |
+          mkdir -p .github
+
+          timestamp=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+
+          cat > .github/maintenance.md << EOF
+          # Repository Maintenance
+
+          Last automated maintenance update:
+
+          **$timestamp**
+
+          This file is updated automatically to verify that scheduled
+          repository maintenance is running correctly.
+          EOF
+
+      - name: Commit maintenance update
+        run: |
+          git add .github/maintenance.md
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: routine repository maintenance"
+
+      - name: Push changes
+        run: |
+          git push origin HEAD:main
