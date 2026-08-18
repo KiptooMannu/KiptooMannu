@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=6E40C9&center=true&vCenter=true&width=750&lines=Hey+there!+I'm+Emmanuel+%F0%9F%91%8B;Full+Stack+Developer+%F0%9F%9A%80;Spring+Boot+%7C+Angular+%7C+React+%7C+Node.js;Building+Scalable+Apps+from+Nairobi+%F0%9F%87%B0%F0%9F%87%AA;Always+Learning+%E2%80%94+Always+Shipping+%E2%9C%85)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=6E40C9&center=true&vCenter=true&width=750&lines=Hey+there!+I'm+Emmanuel+%F0%9F%91%8B;Full+Stack+Developer+%F0%9F%9A%80;Spring+Boot+%7C+Angular+%7C+React+%7C+Node.js;Building+Scalable+Apps+from+Nairobi+%F0%9F%87%B0%F0%9F%87%AA;I+Design+Systems+Before+I+Write+Code+%F0%9F%A7%A9;Always+Learning+%E2%80%94+Always+Shipping+%E2%9C%85)](https://git.io/typing-svg)
 
 <br/>
 
@@ -16,7 +16,12 @@
 
 </div>
 
-> 📡 Badges above are shields.io (queries the GitHub API live, no reliability issues). The **Stats, Top Languages, Streak, Trophies, and Featured Projects** cards below are pre-rendered daily by a GitHub Action into `/profile/*.svg` and served straight from this repo — they no longer depend on the public `vercel.app` demo endpoints, which have been going down/rate-limiting site-wide.
+> 📡 Badges above are shields.io (queries the GitHub API live, no reliability issues). The **Stats, Top Languages, Streak, Trophies, Snake, and Featured Projects** graphics below are pre-rendered by GitHub Actions into `/profile/*.svg` and served straight from this repo — they don't depend on the public `vercel.app` demo endpoints, which have been going down / rate-limiting site-wide.
+
+<div align="center">
+  <img src="./profile/github-contribution-grid-snake-dark.svg#gh-dark-mode-only" alt="Contribution snake" />
+  <img src="./profile/github-contribution-grid-snake.svg#gh-light-mode-only" alt="Contribution snake" />
+</div>
 
 ---
 
@@ -32,13 +37,13 @@
 
 I'm a passionate **Full Stack Developer** based in **Nairobi, Kenya 🇰🇪**, building modern, scalable web applications that solve real-world problems.
 
-I love working across the entire stack — from crafting sleek Angular/React frontends to architecting robust Spring Boot and Node.js backends, backed by PostgreSQL databases.
+I love working across the entire stack — from crafting sleek Angular/React frontends to architecting robust Spring Boot and Node.js backends, backed by PostgreSQL databases. I care as much about *how* a system is put together as what it does on screen — most of my "coding time" is actually spent thinking before I touch a keyboard (see [🧩 How I Design & Build](#-how-i-design--build) below).
 
 <br/>
 
 🔭 &nbsp;Currently building a **Vehicle Management System** (Spring Boot + Angular)<br/>
 🌱 &nbsp;Learning **Microservices**, **Docker**, **CI/CD** & **Cloud Deployment**<br/>
-💬 &nbsp;Ask me about **Angular, React, Spring Boot, Node.js, TypeScript**<br/>
+💬 &nbsp;Ask me about **Angular, React, Spring Boot, Node.js, TypeScript, System Design**<br/>
 🤝 &nbsp;Open to **collaborations**, **freelance work**, and **open-source**<br/>
 🏆 &nbsp;GitHub Achievement: **Pull Shark** 🦈<br/>
 ⚡ &nbsp;Fun fact: I debug with `console.log` — no shame! 😄<br/>
@@ -63,6 +68,7 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 | 🌍 | Nairobi, Kenya |
 | ✉️ | kkgg7241@gmail.com |
 | ⏰ | UTC+3 Timezone |
+| 🧱 | Spring Boot · Angular · React · Node.js |
 
 </td>
 </tr>
@@ -178,6 +184,56 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 
 ---
 
+<!-- ══════════════════════════════════════════════ SYSTEM DESIGN & WORKFLOW ══ -->
+
+## 🧩 How I Design & Build
+
+I treat every project as a small system, not a pile of files. Roughly, this is the loop I follow, whether it's a weekend project or something like the Vehicle Management System:
+
+### 1. Understand the problem before the stack
+- Write down the **actors** (who uses this — admin, driver, customer?) and the **core flows** (what does each actor actually need to *do*?).
+- Sketch the domain model on paper first — entities, relationships, and which side "owns" a piece of data — before opening an IDE.
+- Decide what's actually in scope for v1 vs. what's a "later" feature. Most bugs I've shipped came from skipping this step.
+
+### 2. Architecture sketch
+- **Layering:** Controller → Service → Repository on the backend (Spring Boot), with DTOs at the boundary so the API contract doesn't leak persistence details.
+- **Frontend:** feature-based module structure (Angular) or feature folders (React) — components stay dumb, state and API calls live in dedicated services/hooks.
+- **Data:** model the PostgreSQL schema with normalization first, then deliberately denormalize only where a read pattern demands it.
+- **Contracts first:** define the REST endpoints (resource, verb, status codes, payload shape) before writing implementation, so frontend and backend can move in parallel.
+
+### 3. Non-functional concerns, early
+- **Auth:** JWT-based stateless auth, role-based access at the endpoint level, refresh-token rotation for longer sessions.
+- **Scalability:** favor stateless services so horizontal scaling is just "add another instance"; push hot reads behind Redis caching where it matters.
+- **Resilience:** validate at the boundary (DTO validation), fail fast with meaningful HTTP status codes, centralized exception handling instead of scattered try/catch.
+- **Observability:** structured logging from day one — it's much cheaper to add before a bug shows up than after.
+
+### 4. Build in vertical slices
+- Ship one full flow end-to-end (DB → API → UI) before broadening to the next feature, rather than building every layer fully before connecting them.
+- This surfaces integration issues (CORS, serialization mismatches, auth edge cases) early, when they're cheap to fix.
+
+### 5. Iterate with tests and Docker
+- Unit tests around business logic (JUnit 5 on the backend, Jest on the frontend), integration tests around the riskiest flows.
+- Containerize early with Docker so "works on my machine" stops being a category of bug, and the eventual CI/CD pipeline has less to bolt on later.
+
+### 6. Ship, measure, refactor
+- Small, reviewable commits with clear messages over big-bang merges.
+- Once something is live, real usage tells me more than my assumptions did — that feedback loop is what decides the next iteration, not just a roadmap written in week one.
+
+<div align="center">
+
+| Phase | Primary Question | Tools I Lean On |
+|---|---|---|
+| 🧭 Discovery | Who uses this, and for what? | Notes, whiteboard sketches, domain modeling |
+| 🏗️ Architecture | How do the pieces talk to each other? | ER diagrams, API contracts, sequence sketches |
+| 🔐 Non-functional | What breaks this at scale or under bad input? | Auth design, validation, caching, logging |
+| ⚒️ Build | Smallest end-to-end slice I can ship? | Spring Boot, Angular/React, Docker |
+| ✅ Verify | Does it actually do what I designed? | JUnit 5, Jest, Postman, manual QA |
+| 🔁 Refine | What does real usage tell me? | Metrics, logs, user feedback, refactors |
+
+</div>
+
+---
+
 <!-- ══════════════════════════════════════════════ GITHUB STATS (FIXED) ══ -->
 
 ## 📊 GitHub Stats
@@ -230,6 +286,26 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 <img height="150" src="./profile/pin-5.svg" />
 
 </div>
+
+### 🎯 Spotlight: Vehicle Management System
+
+<table>
+<tr>
+<td width="60%">
+
+A full-stack system for tracking fleet vehicles, drivers, and maintenance schedules.
+
+- **Backend:** Spring Boot, layered architecture (Controller → Service → Repository), JWT auth, role-based access (Admin / Manager / Driver)
+- **Frontend:** Angular, reactive forms, RxJS for async state, route guards tied to roles
+- **Database:** PostgreSQL, normalized schema for vehicles/drivers/maintenance records with audit timestamps
+- **In progress:** Dockerizing both services and wiring a GitHub Actions CI pipeline for automated build + test on every PR
+
+</td>
+<td width="40%" align="center">
+  <img src="https://media.giphy.com/media/L1R1tvL5nnLXO/giphy.gif" width="220" alt="Building" />
+</td>
+</tr>
+</table>
 
 ---
 
@@ -290,7 +366,7 @@ I love working across the entire stack — from crafting sleek Angular/React fro
 
 </div>
 
-I believe great software lives at the intersection of **technical depth** and **empathy for the user**. Whether I'm designing a REST API, architecting a PostgreSQL schema, or crafting a pixel-perfect Angular UI — I aim to write code that is **readable**, **maintainable**, and **built to last**.
+I believe great software lives at the intersection of **technical depth** and **empathy for the user**. Whether I'm designing a REST API, architecting a PostgreSQL schema, or crafting a pixel-perfect Angular UI — I aim to write code that is **readable**, **maintainable**, and **built to last**. Design comes before code, contracts come before implementation, and a small working slice beats a large half-finished one.
 
 ---
 
