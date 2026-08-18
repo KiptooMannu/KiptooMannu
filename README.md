@@ -271,41 +271,16 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 
 <!-- ══════════════════════════════════════════════ PROJECTS ══ -->
 
-## 🚀 Featured Projects — Top Repositories by Recent Activity
+## 🚀 Featured Projects — Ranked by Commit Activity
 
-> Self-hosted via GitHub Actions — automatically selects your top 5 most active repositories and generates pin cards. Updates daily.
+> **Nothing below is hardcoded.** A GitHub Action (`.github/workflows/rank-projects.yml`) runs daily, counts commits you've pushed to each repo in the last 90 days via the GitHub API, ranks them highest → lowest, and rewrites the section between the markers below with the top 5. Push more to a project and it rises here automatically; stop touching it and it drops off. See `scripts/rank-projects.mjs` for the ranking logic.
 
-<div align="center">
+<!-- PROJECTS:START -->
+<!-- This block is regenerated automatically — do not edit by hand, your edits will be overwritten on the next run. -->
 
-<img height="150" src="./profile/pin-1.svg" />
-<img height="150" src="./profile/pin-2.svg" />
+_Run the workflow once (or wait for the next scheduled run) to populate this section with your top 5 repos, ranked by commits pushed in the last 90 days._
 
-<img height="150" src="./profile/pin-3.svg" />
-<img height="150" src="./profile/pin-4.svg" />
-
-<img height="150" src="./profile/pin-5.svg" />
-
-</div>
-
-### 🎯 Spotlight: Vehicle Management System
-
-<table>
-<tr>
-<td width="60%">
-
-A full-stack system for tracking fleet vehicles, drivers, and maintenance schedules.
-
-- **Backend:** Spring Boot, layered architecture (Controller → Service → Repository), JWT auth, role-based access (Admin / Manager / Driver)
-- **Frontend:** Angular, reactive forms, RxJS for async state, route guards tied to roles
-- **Database:** PostgreSQL, normalized schema for vehicles/drivers/maintenance records with audit timestamps
-- **In progress:** Dockerizing both services and wiring a GitHub Actions CI pipeline for automated build + test on every PR
-
-</td>
-<td width="40%" align="center">
-  <img src="https://media.giphy.com/media/L1R1tvL5nnLXO/giphy.gif" width="220" alt="Building" />
-</td>
-</tr>
-</table>
+<!-- PROJECTS:END -->
 
 ---
 
