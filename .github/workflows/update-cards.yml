@@ -21,34 +21,58 @@ jobs:
       - name: Ensure profile directory exists
         run: mkdir -p profile
 
-      - name: Fetch GitHub Stats card
+      - name: Write fetch helper script
         run: |
-          curl -sSL "https://github-readme-stats.vercel.app/api?username=KiptooMannu&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6E40C9&icon_color=6E40C9&text_color=c9d1d9&bg_color=00000000" \
-            -o profile/stats.svg
+          cat > fetch_card.sh << 'SCRIPT_EOF'
+          #!/usr/bin/env bash
+          set -uo pipefail
 
-      - name: Fetch Top Languages card
-        run: |
-          curl -sSL "https://github-readme-stats.vercel.app/api/top-langs/?username=KiptooMannu&layout=compact&theme=tokyonight&hide_border=true&title_color=6E40C9&text_color=c9d1d9&bg_color=00000000" \
-            -o profile/top-langs.svg
+          fetch_card () {
+            url="$1"
+            out="$2"
+            label="$3"
+            tmp="$(mktemp)"
 
-      - name: Fetch Streak Stats card
-        run: |
-          curl -sSL "https://github-readme-streak-stats.herokuapp.com/?user=KiptooMannu&theme=tokyonight&hide_border=true&ring=6E40C9&fire=6E40C9&background=00000000" \
-            -o profile/streak.svg
+            for attempt in 1 2 3; do
+              curl -sSL --max-time 20 "$url" -o "$tmp" && break
+              echo "Attempt $attempt for $label failed, retrying..."
+              sleep 5
+            done
 
-      - name: Fetch Trophy card
-        run: |
-          curl -sSL "https://github-profile-trophy.vercel.app/?username=KiptooMannu&theme=algolia&no-frame=true&no-bg=true&row=1&column=6" \
-            -o profile/trophy.svg
-
-      - name: Verify downloads are valid SVGs, not error pages
-        run: |
-          for f in profile/stats.svg profile/top-langs.svg profile/streak.svg profile/trophy.svg; do
-            if ! head -c 300 "$f" | grep -qi "<svg"; then
-              echo "::warning::$f did not come back as a valid SVG — reverting to the last known-good version."
-              git checkout -- "$f" 2>/dev/null || true
+            if [ -s "$tmp" ] && head -c 300 "$tmp" | grep -qi "<svg"; then
+              mv "$tmp" "$out"
+              echo "$label: OK"
+            elif [ -f "$out" ]; then
+              echo "$label: fetch failed, keeping previous committed version"
+              rm -f "$tmp"
+            else
+              echo "$label: fetch failed and no previous version exists, writing placeholder"
+              printf '%s\n' \
+                '<svg xmlns="http://www.w3.org/2000/svg" width="495" height="120" viewBox="0 0 495 120">' \
+                '  <rect width="495" height="120" rx="8" fill="#0d1117" stroke="#30363d"/>' \
+                '  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#6E40C9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16">' \
+                "    ${label} - run the workflow to generate" \
+                '  </text>' \
+                '</svg>' > "$out"
+              rm -f "$tmp"
             fi
-          done
+          }
+
+          fetch_card "https://github-readme-stats.vercel.app/api?username=KiptooMannu&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=6E40C9&icon_color=6E40C9&text_color=c9d1d9&bg_color=00000000" "profile/stats.svg" "GitHub Stats"
+
+          fetch_card "https://github-readme-stats.vercel.app/api/top-langs/?username=KiptooMannu&layout=compact&theme=tokyonight&hide_border=true&title_color=6E40C9&text_color=c9d1d9&bg_color=00000000" "profile/top-langs.svg" "Top Languages"
+
+          fetch_card "https://github-readme-streak-stats.herokuapp.com/?user=KiptooMannu&theme=tokyonight&hide_border=true&ring=6E40C9&fire=6E40C9&background=00000000" "profile/streak.svg" "Streak Stats"
+
+          fetch_card "https://github-profile-trophy.vercel.app/?username=KiptooMannu&theme=algolia&no-frame=true&no-bg=true&row=1&column=6" "profile/trophy.svg" "GitHub Trophies"
+          SCRIPT_EOF
+          chmod +x fetch_card.sh
+
+      - name: Fetch all cards with fallback
+        run: ./fetch_card.sh
+
+      - name: Clean up helper script
+        run: rm -f fetch_card.sh
 
       - name: Commit updated cards
         run: |
