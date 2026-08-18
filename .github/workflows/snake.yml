@@ -2,12 +2,19 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    # Runs every 6 hours — regenerates the SVG from your real contribution graph
+    # Runs every 6 hours - regenerates the SVG from your real contribution graph
     - cron: "0 */6 * * *"
   workflow_dispatch: {}
   push:
     branches:
       - main
+
+# Serializes this workflow against the other profile-writing workflows
+# (rank-projects.yml, update-cards.yml) so they never race to push to main
+# at the same time. Runs queue instead of overlapping.
+concurrency:
+  group: profile-repo-write
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -28,10 +35,28 @@ jobs:
             profile/github-contribution-grid-snake.svg
             profile/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Commit snake output to main
+      - name: Commit and push with retry
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add profile/github-contribution-grid-snake*.svg
-          git diff --quiet --cached || git commit -m "chore: update contribution snake [skip ci]"
-          git push
+
+          if git diff --quiet --cached; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update contribution snake [skip ci]"
+
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Push succeeded on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected on attempt $attempt, pulling and rebasing..."
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+
+          echo "Push failed after multiple attempts."
+          exit 1
