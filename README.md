@@ -276,9 +276,102 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 > **Nothing below is hardcoded.** A GitHub Action (`.github/workflows/rank-projects.yml`) runs daily, counts commits you've pushed to each repo in the last 90 days via the GitHub API, ranks them highest → lowest, and rewrites the section between the markers below with the top 5. Push more to a project and it rises here automatically; stop touching it and it drops off. See `scripts/rank-projects.mjs` for the ranking logic.
 
 <!-- PROJECTS:START -->
-<!-- This block is regenerated automatically — do not edit by hand, your edits will be overwritten on the next run. -->
+<!-- This block is regenerated automatically - do not edit by hand, your edits will be overwritten on the next run. -->
 
-_Run the workflow once (or wait for the next scheduled run) to populate this section with your top 5 repos, ranked by commits pushed in the last 90 days._
+> Ranked by commits pushed in the last 90 days - regenerated 2026-08-18
+
+### #1 - KiptooMannu
+
+Config files for my GitHub profile.
+
+<div align="left">
+
+[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/KiptooMannu)
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-View_App-6E40C9?style=for-the-badge)](https://github.com/KiptooMannu)
+
+[![Stars](https://img.shields.io/github/stars/KiptooMannu/KiptooMannu?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/KiptooMannu/stargazers)
+[![Forks](https://img.shields.io/github/forks/KiptooMannu/KiptooMannu?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/KiptooMannu/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/KiptooMannu?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/KiptooMannu/commits)
+[![Issues](https://img.shields.io/github/issues/KiptooMannu/KiptooMannu?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/KiptooMannu/issues)
+
+</div>
+
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-75-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
+![config](https://img.shields.io/badge/config-topic-2d2d44?style=flat-square) ![github-config](https://img.shields.io/badge/github-config-topic-2d2d44?style=flat-square)
+---
+
+### #2 - Client-Search-Backend
+
+No description set on this repo yet.
+
+<div align="left">
+
+[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Client-Search-Backend)
+
+[![Stars](https://img.shields.io/github/stars/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/Client-Search-Backend/stargazers)
+[![Forks](https://img.shields.io/github/forks/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/Client-Search-Backend/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/Client-Search-Backend/commits)
+[![Issues](https://img.shields.io/github/issues/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/Client-Search-Backend/issues)
+
+</div>
+
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-68-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-Java-2d2d44?style=flat-square)
+---
+
+### #3 - Client-Worker-Connection-Platform
+
+A full-stack freelance marketplace connecting clients with skilled workers through secure hiring, escrow payments, real-time messaging, worker verification, dispute resolution, and review management.
+
+<div align="left">
+
+[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Client-Worker-Connection-Platform)
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-View_App-6E40C9?style=for-the-badge)](https://client-worker-connection-platform.vercel.app)
+
+[![Stars](https://img.shields.io/github/stars/KiptooMannu/Client-Worker-Connection-Platform?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/Client-Worker-Connection-Platform/stargazers)
+[![Forks](https://img.shields.io/github/forks/KiptooMannu/Client-Worker-Connection-Platform?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/Client-Worker-Connection-Platform/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/Client-Worker-Connection-Platform?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/Client-Worker-Connection-Platform/commits)
+[![Issues](https://img.shields.io/github/issues/KiptooMannu/Client-Worker-Connection-Platform?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/Client-Worker-Connection-Platform/issues)
+
+</div>
+
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-60-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
+---
+
+### #4 - Enterprise-Authentication-Authorization-System
+
+A production-ready authentication system built with Spring Boot and Angular implementing JWT Authentication, OAuth2 Login, Refresh Tokens, Password Hashing, Role-Based Access Control (RBAC), Secure REST APIs, and modern enterprise security practices.
+
+<div align="left">
+
+[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System)
+
+[![Stars](https://img.shields.io/github/stars/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/stargazers)
+[![Forks](https://img.shields.io/github/forks/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/commits)
+[![Issues](https://img.shields.io/github/issues/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/issues)
+
+</div>
+
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-28-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
+---
+
+### #5 - Biashara
+
+No description set on this repo yet.
+
+<div align="left">
+
+[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Biashara)
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-View_App-6E40C9?style=for-the-badge)](https://biashara-eight.vercel.app)
+
+[![Stars](https://img.shields.io/github/stars/KiptooMannu/Biashara?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/Biashara/stargazers)
+[![Forks](https://img.shields.io/github/forks/KiptooMannu/Biashara?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/Biashara/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/Biashara?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/Biashara/commits)
+[![Issues](https://img.shields.io/github/issues/KiptooMannu/Biashara?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/Biashara/issues)
+
+</div>
+
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-12-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-Java-2d2d44?style=flat-square)
 
 <!-- PROJECTS:END -->
 
