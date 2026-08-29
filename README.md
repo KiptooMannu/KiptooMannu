@@ -278,7 +278,7 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 <!-- PROJECTS:START -->
 <!-- This block is regenerated automatically - do not edit by hand, your edits will be overwritten on the next run. -->
 
-> Ranked by commits pushed in the last 90 days - regenerated 2026-08-28
+> Ranked by commits pushed in the last 90 days - regenerated 2026-08-29
 
 ### #1 - KiptooMannu
 
@@ -296,7 +296,7 @@ Config files for my GitHub profile.
 
 </div>
 
-![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-183-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-185-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
 ![config](https://img.shields.io/badge/config-topic-2d2d44?style=flat-square) ![github-config](https://img.shields.io/badge/github-config-topic-2d2d44?style=flat-square)
 ---
 
