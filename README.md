@@ -16,8 +16,6 @@
 
 </div>
 
-> 📡 Badges above are shields.io (queries the GitHub API live, no reliability issues). The **Stats, Top Languages, Streak, Trophies, Snake, and Featured Projects** graphics below are pre-rendered by GitHub Actions into `/profile/*.svg` and served straight from this repo — they don't depend on the public `vercel.app` demo endpoints, which have been going down / rate-limiting site-wide.
-
 <div align="center">
   <img src="./profile/github-contribution-grid-snake-dark.svg#gh-dark-mode-only" alt="Contribution snake" />
   <img src="./profile/github-contribution-grid-snake.svg#gh-light-mode-only" alt="Contribution snake" />
@@ -238,7 +236,6 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 
 ## 📊 GitHub Stats
 
-> Self-hosted via GitHub Actions — see `.github/workflows/update-cards.yml`. Regenerated daily and on every push, so it never shows the "broken image" state the public Vercel demo has been throwing.
 
 <div align="center">
   <img width="49%" src="./profile/stats.svg" alt="GitHub Stats" />
@@ -273,12 +270,10 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 
 ## 🚀 Featured Projects — Ranked by Commit Activity
 
-> **Nothing below is hardcoded.** A GitHub Action (`.github/workflows/rank-projects.yml`) runs daily, counts commits you've pushed to each repo in the last 90 days via the GitHub API, ranks them highest → lowest, and rewrites the section between the markers below with the top 5. Push more to a project and it rises here automatically; stop touching it and it drops off. See `scripts/rank-projects.mjs` for the ranking logic.
 
 <!-- PROJECTS:START -->
 <!-- This block is regenerated automatically - do not edit by hand, your edits will be overwritten on the next run. -->
 
-> Ranked by commits pushed in the last 90 days - regenerated 2026-09-04
 
 ### #1 - KiptooMannu
 
