@@ -274,7 +274,7 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 <!-- PROJECTS:START -->
 <!-- This block is regenerated automatically - do not edit by hand, your edits will be overwritten on the next run. -->
 
-> Ranked by commits pushed in the last 90 days - regenerated 2026-10-15
+> Ranked by commits pushed in the last 90 days - regenerated 2026-10-16
 
 ### #1 - KiptooMannu
 
@@ -292,29 +292,11 @@ Config files for my GitHub profile.
 
 </div>
 
-![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-424-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-429-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
 ![config](https://img.shields.io/badge/config-topic-2d2d44?style=flat-square) ![github-config](https://img.shields.io/badge/github-config-topic-2d2d44?style=flat-square)
 ---
 
-### #2 - Enterprise-Authentication-Authorization-System
-
-A production-ready authentication system built with Spring Boot and Angular implementing JWT Authentication, OAuth2 Login, Refresh Tokens, Password Hashing, Role-Based Access Control (RBAC), Secure REST APIs, and modern enterprise security practices.
-
-<div align="left">
-
-[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System)
-
-[![Stars](https://img.shields.io/github/stars/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/stargazers)
-[![Forks](https://img.shields.io/github/forks/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/network/members)
-[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/commits)
-[![Issues](https://img.shields.io/github/issues/KiptooMannu/Enterprise-Authentication-Authorization-System?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/Enterprise-Authentication-Authorization-System/issues)
-
-</div>
-
-![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-22-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
----
-
-### #3 - Biashara
+### #2 - Biashara
 
 No description set on this repo yet.
 
@@ -333,7 +315,7 @@ No description set on this repo yet.
 ![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-19-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-Java-2d2d44?style=flat-square)
 ---
 
-### #4 - Client-Worker-Connection-Platform
+### #3 - Client-Worker-Connection-Platform
 
 A full-stack freelance marketplace connecting clients with skilled workers through secure hiring, escrow payments, real-time messaging, worker verification, dispute resolution, and review management.
 
@@ -352,7 +334,7 @@ A full-stack freelance marketplace connecting clients with skilled workers throu
 ![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-14-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
 ---
 
-### #5 - Kapsomoita-Church-Website
+### #4 - Kapsomoita-Church-Website
 
 No description set on this repo yet.
 
@@ -369,6 +351,24 @@ No description set on this repo yet.
 </div>
 
 ![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-12-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
+---
+
+### #5 - Client-Search-Backend
+
+No description set on this repo yet.
+
+<div align="left">
+
+[![Source](https://img.shields.io/badge/Source-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KiptooMannu/Client-Search-Backend)
+
+[![Stars](https://img.shields.io/github/stars/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Stars)](https://github.com/KiptooMannu/Client-Search-Backend/stargazers)
+[![Forks](https://img.shields.io/github/forks/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Forks)](https://github.com/KiptooMannu/Client-Search-Backend/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Last%20Commit)](https://github.com/KiptooMannu/Client-Search-Backend/commits)
+[![Issues](https://img.shields.io/github/issues/KiptooMannu/Client-Search-Backend?style=flat-square&color=6E40C9&label=Open%20Issues)](https://github.com/KiptooMannu/Client-Search-Backend/issues)
+
+</div>
+
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-10-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-Java-2d2d44?style=flat-square)
 
 <!-- PROJECTS:END -->
 
