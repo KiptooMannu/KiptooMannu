@@ -274,7 +274,7 @@ I treat every project as a small system, not a pile of files. Roughly, this is t
 <!-- PROJECTS:START -->
 <!-- This block is regenerated automatically - do not edit by hand, your edits will be overwritten on the next run. -->
 
-> Ranked by commits pushed in the last 90 days - regenerated 2026-10-27
+> Ranked by commits pushed in the last 90 days - regenerated 2026-10-28
 
 ### #1 - KiptooMannu
 
@@ -292,7 +292,7 @@ Config files for my GitHub profile.
 
 </div>
 
-![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-487-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-492-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-JavaScript-2d2d44?style=flat-square)
 ![config](https://img.shields.io/badge/config-topic-2d2d44?style=flat-square) ![github-config](https://img.shields.io/badge/github-config-topic-2d2d44?style=flat-square)
 ---
 
@@ -312,7 +312,7 @@ No description set on this repo yet.
 
 </div>
 
-![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-12-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
+![Commits (90d)](https://img.shields.io/badge/Commits%20(90d)-8-6E40C9?style=flat-square) ![Language](https://img.shields.io/badge/Language-TypeScript-2d2d44?style=flat-square)
 ---
 
 ### #3 - Biashara
